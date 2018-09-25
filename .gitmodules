@@ -1,0 +1,7 @@
+[submodule "themes/hugo-octopress"]
+	path = themes/hugo-octopress
+	url = https://github.com/parsiya/hugo-octopress/
+[submodule "public"]
+	path = public
+	url = git@github.com:logicminds/logicminds.github.io.git
+	branch = master

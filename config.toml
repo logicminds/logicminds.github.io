@@ -1,0 +1,85 @@
+baseurl = "http://logicminds.github.io"
+disablePathToLower = false
+languageCode = "en-us"
+title = "Logical thoughts exposed"
+theme = "hugo-octopress"
+metadataformat = "yaml"
+pygmentsStyle = "solarized-dark"
+
+# Disqus shortcode
+# Disable comments for any individual post by adding "comments: false" in its frontmatter
+disqusShortname = "logicalthoughtsexposed"
+
+# Number of blog posts in each pagination page
+paginate = 6
+
+[permalinks]
+# Configures post URLs
+post = "/blog/:year-:month-:day-:title/"
+
+[[menu.sidebar]]
+    Name = "Categories"
+    URL = "/categories/"
+    weight = 1
+
+[[menu.sidebar]]
+    Name = "Tags"
+    URL = "/tags/"
+
+
+[params]
+  github = "https://github.com/nwops/"
+  twitter = 'https://twitter.com/cosman2001'
+  linkedin = 'https://www.linkedin.com/in/logicmindscorp/'
+  navigationNewWindow = true
+  generateTaxonomyList = true
+  #sidebarHeader = ""
+  sidebarMenuEnabled = true
+
+  sidebarRecentLimit = 10
+  # If false, all contents of posts will appear on the front page and in pagination
+  truncate = true
+
+  # Author's name (appears in meta tags and under posts)
+  author = "Corey Osman"
+  subtitle = "A journey through my life as a infrastructure developer"
+  # Search engine URL
+  searchEngineURL = "https://www.google.com/search"
+
+  # Text of the "Continue Reading" label. Supports markdown and inline HTML.
+  # For example, &rarr; == right arrow.
+  continueReadingText = "Would you like to know more? &rarr;"
+
+  # Google analytics code - remove if you do not have/want Google Analytics - needs JavaScript
+
+  #googleAnalytics = "UA-XXXXX-X"
+
+  # Optional piwik tracking
+  #[params.analytics.piwik]
+  #  URL = "https://stats.example.com"
+  #  ID = "42"
+
+  # Switch to true to enable RSS icon link
+  rss = true
+
+  # Set to true to use a text label for RSS instead of an icon
+  # This is overwritten by the "rss" setting
+  textrss = false
+
+  # Website's default description
+  defaultDescription = "Magical DevOps Thoughts"
+
+  # Populate with your search keywords - these will appear in meta tags
+  # defaultKeywords = ["keyword1" , "keyword2" , "keyword3" , "keyword4"]
+
+  # Set to true to hide ReadingTime on posts
+  disableReadingTime = false
+
+  # Set to true to disable downloading of remote Google fonts
+  disableGoogleFonts = false
+
+  # Remove or set to false to use local fonts
+  remoteFonts = false
+
+  # Remove or set to false to use FontAwesome CDN, otherwise, the theme uses ForkAwesome local fonts.
+  # fontAwesome = false
