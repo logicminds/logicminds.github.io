@@ -16,7 +16,7 @@ With this in mind, we need a way to get inside the puppet compiler and see how o
 just a static end state.  The [puppet-debugger](https://github.com/nwops/puppet-debugger) is a tool that allows us to discover and explore the inner workings of puppet code in real time
 as if you are standing inside the compiler with a big poking stick.
 
-{% img [class names] /images/aemzh.jpg 'Poke Harder' 'Dr. Farnsworth poking a dead space creature' %}
+![Poke Harder](/images/aemzh.jpg)
 
 
 Below I will show you the steps needed to combine [rspec-puppet](http://rspec-puppet.com/) and the [puppet-debugger](https://github.com/nwops/puppet-debugger) to step into your code during compilation
@@ -97,13 +97,13 @@ end
 
 ```
 
-{% img [class names] /images/debug_rspec.gif 'Debug using rspec' 'Debug using rspec animated gif' %}
+![Debug using rspec](/images/debug_rspec.gif)
 
 
 As I mentioned above you can also use the puppet debugger directly and playback puppet code.
 ie. `puppet debugger --play examples/debug.pp`
 
-{% img [class names] /images/debug_directly.gif 'Debug using puppet debugger command' 'Debug using rspec animated gif' %}
+[Debug using puppet debugger command](/images/debug_directly.gif)
 
 
 When using puppet apply, just remember you either need to include the class like `include testmod` from within the debugger or puppet code.
