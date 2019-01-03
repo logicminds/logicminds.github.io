@@ -1,4 +1,4 @@
-baseurl = "http://logicminds.github.io"
+baseurl = ""
 disablePathToLower = false
 languageCode = "en-us"
 title = "Logical thoughts exposed"
