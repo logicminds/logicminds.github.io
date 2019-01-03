@@ -33,7 +33,7 @@ post = "/blog/:year-:month-:day-:title/"
   linkedin = 'https://www.linkedin.com/in/logicmindscorp/'
   navigationNewWindow = true
   generateTaxonomyList = true
-  #sidebarHeader = ""
+  #sidebarHeader = "Sidestuff"
   sidebarMenuEnabled = true
 
   sidebarRecentLimit = 10

@@ -4,7 +4,7 @@ title: "Alternative Facts"
 date: 2018-09-25 15:26:41 -0700
 comments: true
 published: true
-categories: [devops, puppet, testing, mocking]
+categories: [debugger, devops, puppet, testing, mocking]
 ---
 
 What does Puppet and alternative facts have in common?
@@ -46,6 +46,7 @@ application.  Thereby, making the application assume the mock system you created
   * [puppet-debugger](https://www.puppet-debugger.com)
   * [rspec-puppet-facts](https://github.com/mcanevet/rspec-puppet-facts)
   * puppet  (where you can supply facts)
+
 
 ### Puppet Debugger Example
   Example of debian and facter 2.4
@@ -159,4 +160,7 @@ But the fact is that you just have to set an environment variable when running a
 Because these facts were created by you, they will likely contain all the custom facts you need to test or debug your code.
 And this is a huge deal. Custom puppet modules will always utilize a custom fact for something.
 
-Well that is all for now.  Stay tuned later when I detail how to use rspec-puppet-facts and the puppet-debugger with custom alternative facts.
+This means you can create a frankenstein system of your own to test with.  Ever wanted
+a linux system with a kernel version of 6?  Now you can.
+
+Stay tuned later when I detail how to use rspec-puppet-facts and the puppet-debugger and test a windows 9 system.
