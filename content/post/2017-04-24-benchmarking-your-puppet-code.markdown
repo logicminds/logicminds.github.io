@@ -40,4 +40,4 @@ The benchmark feature is now available with [puppet-debugger](https://github.com
 
 If you have a unique use case I would love to hear about it.
 
-{% img [class names] /images/benchmark.gif 'Benchmark Demo' 'Benchmark Demo' %}
+![Benchmark demo](/images/benchmark.gif)
