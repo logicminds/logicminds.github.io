@@ -1,4 +1,5 @@
 baseurl = ""
+relativeurls = true
 disablePathToLower = false
 languageCode = "en-us"
 title = "Logical thoughts exposed"
