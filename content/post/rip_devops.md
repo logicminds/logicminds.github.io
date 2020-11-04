@@ -13,9 +13,11 @@ How do I know? Here are some facts:
   * Recruiters can never source good DevOps talent
   * Every company is doing "DevOps" and has a team of devops professionals.
 
-How is it possible that a single company can hire tens of people for DevOps? How can these mutually exclusive things exist?  The answer will not surprise you. 
+How is it possible that a single company can hire tens of people for DevOps? How can these mutually exclusive things exist?  
 
-Many Organizations still struggle with operations and development, let alone a practice that combines the two. DevOps was supposed to be a way out of a self induced coma. But somewhere along the line companies forgot about their most valuable asset and thus continue to struggle despite having DevOps at the company. The promise of automation almost a decade ago hasn't come true for most organizations.
+The answer will not surprise you. 
+
+Many Organizations still struggle with operations and development, let alone a practice that combines the two. DevOps was supposed to be a way out of a self induced coma. But somewhere along the line companies forgot about their most valuable asset and thus continued to struggle despite having DevOps at the company. The promise of automation almost a decade ago hasn't come true for most organizations.
 
 ### Why?
 
@@ -24,9 +26,11 @@ Many Organizations still struggle with operations and development, let alone a p
   `With this bash script I knight thee, welcome to DevOps hood, now go move that server to the other datacenter, with only this keyboard.`
 - Was it the manager who feared training their staff was too costly?
   `If you think an expert is expensive, wait till you hire a beginner`
-- The good employees left after they were educated?
+- But if we train them sir, they will wise up and leave.
 
-Let's take a knee for a second, because the issue of education plays a huge factor in the death of DevOps. You don't know what you don't know. 
+Let's take a knee for a second, because the issue of education plays a huge factor in the death of DevOps. 
+
+You don't know what you don't know. 
 
 When a human educates themselves, they are 100% less likely to make the same mistake. So why would a company not want to prevent mistakes? This is the reason why the military constantly trains and runs exercises. They are merely just unit testing their Ops department. They find the bugs and retrain when something is wrong. Training should be the number one job at any company just like the military. Why are we judged purely on what we know? We should be judged based on how we learn and reach for additional enlightenment. If a company is afraid of losing an employee due to training, news flash that employee was going to leave anyway.
 
@@ -40,7 +44,7 @@ I have seen companies train throughly on security best practices but come up sho
 
 If a company actually had this policy recruiters would not be needed because people would flock to them. They would need a good hiring filter process though.
 
-They say education has the biggest payoff. Why? Because it is fucking true. When have you ever succeeded in work/life by ignoring the changes around you?
+They say education has the biggest payoff. Why? Because it is fucking true. When have you ever succeeded in life by ignoring education or learning?
 
 How many of you have had a manager ask which software you want (not need) in order to fullfill a yearly budget? What about education?  Why didn't they ask what education you want?  Or maybe they did and you have a fantastic job.  Where did you say work?
 
