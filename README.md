@@ -11,6 +11,7 @@
     - [Page Menu](#page-menu)
   - [Generating new doc sections](#generating-new-doc-sections)
   - [Viewing the docs](#viewing-the-docs)
+  - [Spell Check](#spell-check)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -23,7 +24,7 @@ When creating more docs you can follow the [hugo docs](https://gohugo.io/documen
 
 ## Theme
 
-In order to maintain the Decred brand we have forked the the hugo docs theme and replaced with
+In order to maintain we have forked the the hugo docs theme and replaced with
 the Decred brand colors, fonts and images. You can work directly with this theme [here](https://gitlab.com/coreynwops/decred-hugo-theme).
 
 The usage of this theme with regards to these docs will be as a git submodule. Please be aware of this. If you are unfamilar with git submodules I would recommend spending the time to read [this article](https://medium.com/@porteneuve/mastering-git-submodules-34c65e940407) about its usage.
@@ -33,10 +34,10 @@ The usage of this theme with regards to these docs will be as a git submodule. P
 In order to get started with writing docs or updating the site navigation you first need to clone this repo and perform the following steps.
 
 0. [install hugo](https://gohugo.io/getting-started/installing/)
-1. `git clone https://gitlab.com/coreynwops/decred-dev-docs`
-1. `git submodule update --init`
-1. `cd decred-dev-docs`
-1. `hugo`
+1. `git clone https://gitlab.com/`
+2. `git submodule update --init`
+3. `cd`
+4. `hugo`
 
 If successful you should see:
 
