@@ -92,7 +92,7 @@ These docs are all stored under the content directory.
 
 ## Generating new doc sections
 
-I have created am archetype for generating a new doc. Essentially, this is just a template so we can easily create or modify archetypes.
+I have created an archetype for generating a new doc. Essentially, this is just a template so we can easily create or modify archetypes.
 
 `hugo new -k doc_section en/<topic>/<subtopic>/_index.md`
 
