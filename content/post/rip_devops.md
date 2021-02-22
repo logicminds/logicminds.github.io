@@ -11,7 +11,7 @@ Let's face it. DevOps has peaked and is now dying a slow death from obfuscation.
 
 How do I know? Here are some facts:
   * Recruiters can never source good DevOps talent
-  * Every company is doing "DevOps" and has a team of devops professionals.
+  * Every company is doing "DevOps" and has a huge team of devops professionals.
 
 How is it possible that a single company can hire tens of people for DevOps? How can these mutually exclusive things exist?  
 

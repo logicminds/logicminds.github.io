@@ -135,6 +135,7 @@ Press Ctrl+C to stop
 ```
 
 ## Spell Check
+
 `docker run -ti --rm -v ${PWD}:/app --workdir=/app tmaier/markdown-spellcheck:latest -a -n --en-us content/**/*.md`
 
 `--report "content/**/*.md" --ignore-acronyms --ignore-numbers --en-us`
