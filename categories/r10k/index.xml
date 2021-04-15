@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>r10k on Logical thoughts exposed</title><link>/categories/r10k/</link><description>Recent content in r10k on Logical thoughts exposed</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 13 Mar 2021 09:52:43 -0800</lastBuildDate><atom:link href="/categories/r10k/index.xml" rel="self" type="application/rss+xml"/><item><title>Decouple Your Control Repo Branches</title><link>/blog/2021-03-13-decouple-your-control-repo-branches/</link><pubDate>Sat, 13 Mar 2021 09:52:43 -0800</pubDate><guid>/blog/2021-03-13-decouple-your-control-repo-branches/</guid><description>Coming soon!
-In the meantime, read up on these first.
-Single branch strategy
-Environment strategy
-R10k YAML environment docs )</description></item></channel></rss>
