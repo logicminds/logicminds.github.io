@@ -1,7 +1,7 @@
 ---
 layout: post
 published: true
-title: "Testing Your Infallibleness - Part 1"
+title: "Testing Your infallibility - Part 1"
 date: 2015-04-14 11:45:54 -0700
 comments: true
 categories: [puppet, chef, rspec, unit testing, testing]
@@ -9,8 +9,6 @@ categories: [puppet, chef, rspec, unit testing, testing]
 Audience:  System Admin, Self taught coder, Computer Scientist
 
 Summary: How to leverage puppet-retrospec to generate your puppet unit test suite
-
-Time Involved: 10 minutes
 
 How many of you remember when the spell checker first came out?  It had such a huge impact in everyones life because
 instantly everyone who used the spell checker appeared as if they had won the international spelling bee.  How long did

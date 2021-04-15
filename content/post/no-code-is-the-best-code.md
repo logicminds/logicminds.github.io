@@ -1,7 +1,6 @@
 ---
 title: "No Code Is the Best Code"
 date: 2021-02-15T11:59:10-07:00
-draft: false
 layout: post
 comments: true
 published: true
