@@ -9,6 +9,7 @@ categories: [puppet, devops, r10k]
 
 Coming soon!
 
+
 ![](/images/beaker_on_fire.gif) 
 
 In the meantime, read up on these first.
