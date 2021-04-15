@@ -25,7 +25,7 @@ When creating more docs you can follow the [hugo docs](https://gohugo.io/documen
 ## Theme
 
 In order to maintain we have forked the the hugo docs theme and replaced with
-the Decred brand colors, fonts and images. You can work directly with this theme [here](https://gitlab.com/coreynwops/decred-hugo-theme).
+the logicminds brand colors, fonts and images. You can work directly with this theme [here](https://gitlab.com/coreynwops/logicminds-hugo-theme).
 
 The usage of this theme with regards to these docs will be as a git submodule. Please be aware of this. If you are unfamilar with git submodules I would recommend spending the time to read [this article](https://medium.com/@porteneuve/mastering-git-submodules-34c65e940407) about its usage.
 
@@ -42,7 +42,7 @@ In order to get started with writing docs or updating the site navigation you fi
 If successful you should see:
 
 ```
- ~/decred/decred-dev-docs$ hugo
+ ~/logicminds/logicminds-dev-docs$ hugo
 
                    | EN
 +------------------+----+
@@ -60,7 +60,7 @@ Total in 86 ms
 
 ## Update the theme
 
-There will be a time when the decred hugo theme requires an update. In order to update you
+There will be a time when the logicminds hugo theme requires an update. In order to update you
 will need to run the following command:
 
 `git submodule update`
@@ -112,7 +112,7 @@ You can run the hugo site generator at any time to ensure your docs do not conta
 To see the docs website you can run `docs serve` which generates the docs and starts a webserver. This is also a good way to develop too since hugo adds file watchers and re-generates the static content as you modify it. This is all done live so no need to restart `hugo serve`.
 
 ```
-  ~/decred/decred-dev-docs   master ●  hugo serve
+  ~/logicminds/logicminds-dev-docs   master ●  hugo serve
 
                    | EN
 +------------------+----+
@@ -126,11 +126,11 @@ To see the docs website you can run `docs serve` which generates the docs and st
   Cleaned          |  0
 
 Total in 44 ms
-Watching for changes in /decred/decred-dev-docs/{content,data,themes}
-Watching for config changes in /decred/decred-dev-docs/config.toml
+Watching for changes in /logicminds/logicminds-dev-docs/{content,data,themes}
+Watching for config changes in /logicminds/logicminds-dev-docs/config.toml
 Serving pages from memory
 Running in Fast Render Mode. For full rebuilds on change: hugo server --disableFastRender
-Web Server is available at http://localhost:1313/decred-dev-docs/ (bind address 127.0.0.1)
+Web Server is available at http://localhost:1313/logicminds-dev-docs/ (bind address 127.0.0.1)
 Press Ctrl+C to stop
 ```
 
