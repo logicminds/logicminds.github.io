@@ -9,7 +9,7 @@ categories: [puppet, devops, r10k]
 
 Since the inception of R10k there has been a recipe of 1 part branch to 1 part puppet environment for puppet control repos.  This concoction has allowed us to create one-off ephemeral test environments that we all love simply by creating a new git branch. 
 
-![](/images/beaker_on_fire.gif) 
+![](/static/images/beaker_on_fire.gif) 
 
 We as a community have also incorporated the [gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) model into puppet development best practices.
 
