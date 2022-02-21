@@ -1,13 +1,69 @@
-<!doctype html><html xmlns=http://www.w3.org/1999/xhtml xml:lang=en lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,minimum-scale=1,maximum-scale=1"><link href=../../css/fonts.css rel=stylesheet type=text/css><title>Adding Puppet Debugger and other gems when using PDK</title><link rel=stylesheet href=../../css/hugo-octopress.css><link rel=stylesheet href=../../css/fork-awesome.min.css><link href=../../favicon.png rel=icon><meta name=description content><meta name=keywords content><meta name=author content="Corey Osman"><meta name=generator content="Hugo 0.82.0"></head><body><header role=banner><hgroup><h1><a href=../../>Logical thoughts exposed</a></h1><h2>A journey through my life as a infrastructure developer</h2></hgroup></header><nav role=navigation><fieldset class=mobile-nav><select onchange="location=this.value"><option value>Navigate…</option></select></fieldset><ul class=main-navigation></ul><ul class=subscription><a href=../../index.xml target=_blank type=application/rss+xml title=RSS rel="noopener noreferrer"><i class="fa fa-rss-square fa-lg"></i></a></ul><form action=https://www.google.com/search method=get target=_blank rel="noopener noreferrer"><fieldset role=search><input class=search type=text name=q results=0 placeholder=Search>
-<input type=hidden name=q value=site:/></fieldset></form></nav><div id=main><div id=content><div><article class=hentry role=article><header><p class=meta>Apr 2, 2019
+<!doctype html><html xmlns=http://www.w3.org/1999/xhtml xml:lang=en lang=en-us>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,minimum-scale=1,maximum-scale=1">
+<link href=../../css/fonts.css rel=stylesheet type=text/css>
+<title>Adding Puppet Debugger and other gems when using PDK</title>
+<link rel=stylesheet href=../../css/hugo-octopress.css>
+<link rel=stylesheet href=../../css/fork-awesome.min.css>
+<link href=../../favicon.png rel=icon>
+<meta name=description content>
+<meta name=keywords content>
+<meta name=author content="Corey Osman">
+<meta name=generator content="Hugo 0.92.2">
+</head>
+<body>
+<header role=banner>
+<hgroup>
+<h1><a href=../../>Logical thoughts exposed</a></h1>
+<h2>A journey through my life as a infrastructure developer</h2>
+</hgroup></header>
+<nav role=navigation>
+<fieldset class=mobile-nav>
+<select onchange="location=this.value"><option value>Navigate…</option></select>
+</fieldset>
+<ul class=main-navigation>
+</ul>
+<ul class=subscription>
+<a href=../../index.xml target=_blank type=application/rss+xml title=RSS rel="noopener noreferrer"><i class="fa fa-rss-square fa-lg"></i></a>
+</ul>
+<form action=https://www.google.com/search method=get target=_blank rel="noopener noreferrer">
+<fieldset role=search>
+<input class=search type=text name=q results=0 placeholder=Search>
+<input type=hidden name=q value=site:/>
+</fieldset>
+</form>
+</nav>
+<div id=main>
+<div id=content>
+<div>
+<article class=hentry role=article>
+<header>
+<p class=meta>Apr 2, 2019
 - 4 minute read
 - <a href=../../blog/2019-04-02-adding-puppet-debugger-and-other-gems-when-using-pdk/#disqus_thread>Comments</a>
-- <a class=label href=../../categories/debugger/>debugger </a><a class=label href=../../categories/puppet/>puppet </a><a class=label href=../../categories/pdk/>pdk </a><a class=label href=../../categories/devops/>devops</a></p><h1 class=entry-title>Adding Puppet Debugger and other gems when using PDK</h1></header><div class=entry-content><p>The
-<a href=https://puppet.com/docs/pdk/1.x/pdk.html target=_blank rel=noopener>Puppet Development Kit</a> (PDK) makes it really simple and efficient to work on puppet modules. If you have never used the PDK I would encourage you to try it out especially if you use windows.</p><p>The
-<a href=https://puppet.com/docs/pdk/1.x/pdk.html target=_blank rel=noopener>PDK</a> wraps all the annoying tasks so that you don&rsquo;t have to endure the pain of modifying Gemfiles, spec files, folder structure and other puppet related module development tasks.</p><p>But with any good wrapper code, what you gain in efficiency you do so at the cost of control and customization. And this is certainly true for the PDK. The PDK maintains tight control of certain files like the Gemfile because it was built to meet many use cases and operating systems. However, Puppet has built some unique methods for losing some of this control. So if you have become accustomed to the old way developing puppet modules you will now have to unlearn a few things and use the PDK methods instead.</p><h3 id=adding-new-gems>Adding New Gems</h3><p>One such action you could do easily before PDK was adding ruby gems to the Gemfile. While you can still do this, you should edit a different file instead.</p><p>In this example I want to add the <code>puppet-debugger</code> gem to the puppet module&rsquo;s Gemfile. This can be accomplished either by updating the
-<a href=https://github.com/puppetlabs/pdk-templates target=_blank rel=noopener>PDK templates</a> or adding a .sync.yml file that modifies the templates for just that module.</p><h4 id=update-the-template>Update the template</h4><p>If you want to apply a Gemfile change to all <strong>new</strong> modules you should fork the
+- <a class=label href=../../categories/debugger/>debugger </a><a class=label href=../../categories/puppet/>puppet </a><a class=label href=../../categories/pdk/>pdk </a><a class=label href=../../categories/devops/>devops </a>
+</p>
+<h1 class=entry-title>
+Adding Puppet Debugger and other gems when using PDK
+</h1>
+</header>
+<div class=entry-content>
+<p>The
+<a href=https://puppet.com/docs/pdk/1.x/pdk.html target=_blank rel=noopener>Puppet Development Kit</a> (PDK) makes it really simple and efficient to work on puppet modules. If you have never used the PDK I would encourage you to try it out especially if you use windows.</p>
+<p>The
+<a href=https://puppet.com/docs/pdk/1.x/pdk.html target=_blank rel=noopener>PDK</a> wraps all the annoying tasks so that you don&rsquo;t have to endure the pain of modifying Gemfiles, spec files, folder structure and other puppet related module development tasks.</p>
+<p>But with any good wrapper code, what you gain in efficiency you do so at the cost of control and customization. And this is certainly true for the PDK. The PDK maintains tight control of certain files like the Gemfile because it was built to meet many use cases and operating systems. However, Puppet has built some unique methods for losing some of this control. So if you have become accustomed to the old way developing puppet modules you will now have to unlearn a few things and use the PDK methods instead.</p>
+<h3 id=adding-new-gems>Adding New Gems</h3>
+<p>One such action you could do easily before PDK was adding ruby gems to the Gemfile. While you can still do this, you should edit a different file instead.</p>
+<p>In this example I want to add the <code>puppet-debugger</code> gem to the puppet module&rsquo;s Gemfile. This can be accomplished either by updating the
+<a href=https://github.com/puppetlabs/pdk-templates target=_blank rel=noopener>PDK templates</a> or adding a .sync.yml file that modifies the templates for just that module.</p>
+<h4 id=update-the-template>Update the template</h4>
+<p>If you want to apply a Gemfile change to all <strong>new</strong> modules you should fork the
 <a href=https://github.com/puppetlabs/pdk-templates target=_blank rel=noopener>PDK templates</a> and add your gem to the
-<a href=https://github.com/puppetlabs/pdk-templates/blob/master/config_defaults.yml#L574 target=_blank rel=noopener>config defaults.</a></p><p>Essentially each section of the config_defaults file is a yamlized version of the associated file&rsquo;s contents. So if you want to add a gem like the puppet-debugger you would simply add it here underneath the Gemfile section. The contents that go here are the same you would find in the Gemfile but in yaml format.</p><div class=highlight><pre style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#268bd2>Gemfile</span>:
+<a href=https://github.com/puppetlabs/pdk-templates/blob/master/config_defaults.yml#L574 target=_blank rel=noopener>config defaults.</a></p>
+<p>Essentially each section of the config_defaults file is a yamlized version of the associated file&rsquo;s contents. So if you want to add a gem like the puppet-debugger you would simply add it here underneath the Gemfile section. The contents that go here are the same you would find in the Gemfile but in yaml format.</p>
+<div class=highlight><pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#268bd2>Gemfile</span>:
   <span style=color:#268bd2>required</span>:
     <span style=color:#2aa198>&#34;:development&#34;</span>:
       - <span style=color:#268bd2>gem</span>: puppet-debugger
@@ -20,7 +76,10 @@
         <span style=color:#268bd2>version</span>: <span style=color:#2aa198>&#34;&lt;= 2.0.1&#34;</span>
         <span style=color:#268bd2>condition</span>: <span style=color:#2aa198>&#34;Gem::Version.new(RUBY_VERSION.dup) &lt; Gem::Version.new(&#39;2.0.0&#39;)&#34;</span>
 </code></pre></div><p>You don&rsquo;t need the condition part but if you want to mandate which ruby version the user
-should have it would be a good idea to force that.</p><p>The condition breaks down like this: is the currently used Ruby version less than 2.0.0?</p><p>I have provided some examples for further explanation below.</p><pre><code>Gem::Version.new(RUBY_VERSION.dup)
+should have it would be a good idea to force that.</p>
+<p>The condition breaks down like this: is the currently used Ruby version less than 2.0.0?</p>
+<p>I have provided some examples for further explanation below.</p>
+<pre tabindex=0><code>Gem::Version.new(RUBY_VERSION.dup)
 =&gt; Gem::Version.new(&quot;2.4.4&quot;)
 [2] pry(main)&gt; Gem::Version.new('2.0.0')
 =&gt; Gem::Version.new(&quot;2.0.0&quot;)
@@ -28,10 +87,16 @@ should have it would be a good idea to force that.</p><p>The condition breaks do
 =&gt; false
 [4] pry(main)&gt; Gem::Version.new(RUBY_VERSION.dup) &lt; Gem::Version.new('2.5.0')
 =&gt; true
-</code></pre><p>Once you make the change to this file. Just commit the change to your template repository.</p><p>From then on each new module created from the PDK using your custom template url <code>--template-url https://github.com/puppetlabs/pdk-templates</code>
-will add the puppet-debugger gem or whatever changes you made.</p><h4 id=updating-the-sync-file>Updating the .sync file</h4><p>A more simplified alternative approach is to use the .sync file which doesn&rsquo;t modify the templates. Since the PDK templates are only used on initial creation and conversion of the module. Puppet created a special mechanism that allows for adhoc changes without modifying the pdk-templates. This mechanism also serves as a way to synchronize changes across all your modules.</p><p>Furthermore, If you can&rsquo;t change the pdk-templates this is the next best thing. If you have used
+</code></pre><p>Once you make the change to this file. Just commit the change to your template repository.</p>
+<p>From then on each new module created from the PDK using your custom template url <code>--template-url https://github.com/puppetlabs/pdk-templates</code>
+will add the puppet-debugger gem or whatever changes you made.</p>
+<h4 id=updating-the-sync-file>Updating the .sync file</h4>
+<p>A more simplified alternative approach is to use the .sync file which doesn&rsquo;t modify the templates. Since the PDK templates are only used on initial creation and conversion of the module. Puppet created a special mechanism that allows for adhoc changes without modifying the pdk-templates. This mechanism also serves as a way to synchronize changes across all your modules.</p>
+<p>Furthermore, If you can&rsquo;t change the pdk-templates this is the next best thing. If you have used
 <a href=https://www.retrospec-puppet.com target=_blank rel=noopener>retrospec</a> the sync feature is similar with the exception of getting way more granular and syncing changes inside the file instead of just the file itself. You can read more about this sync
-<a href=https://puppet.com/docs/pdk/1.x/customizing_module_config.html#customizing-the-default-template target=_blank rel=noopener>mechanism</a> that allows you to &ldquo;modify the templates&rdquo; without modifying the template repos. Essentially it is a config file for the templates a la post module creation. By default the PDK doesn&rsquo;t create this file by default.</p><p>To add the puppet-debugger gem or any gem for that matter, Create a .sync.yml file with the contents below.</p><pre><code># .sync.yml
+<a href=https://puppet.com/docs/pdk/1.x/customizing_module_config.html#customizing-the-default-template target=_blank rel=noopener>mechanism</a> that allows you to &ldquo;modify the templates&rdquo; without modifying the template repos. Essentially it is a config file for the templates a la post module creation. By default the PDK doesn&rsquo;t create this file by default.</p>
+<p>To add the puppet-debugger gem or any gem for that matter, Create a .sync.yml file with the contents below.</p>
+<pre tabindex=0><code># .sync.yml
 ---
 Gemfile:
   required:
@@ -39,15 +104,96 @@ Gemfile:
       - gem: 'puppet-resource_api'
       - gem: 'puppet-debugger'
 
-</code></pre><p>Once you create this file you need to run <code>pdk update</code> and follow the prompts or <code>pdk update --force</code> to blindly accept changes.</p><p>This will modify the Gemfile like so:</p><pre><code>group :development do
+</code></pre><p>Once you create this file you need to run <code>pdk update</code> and follow the prompts or <code>pdk update --force</code> to blindly accept changes.</p>
+<p>This will modify the Gemfile like so:</p>
+<pre tabindex=0><code>group :development do
   # note, I remove contents above for brevity
   gem &quot;puppet-resource_api&quot;,                           require: false
   gem &quot;puppet-debugger&quot;,                               require: false
 end
-</code></pre><p>Since the .sync.yml file is now in your module&rsquo;s repo anybody else working on your module will have the same environment. Additionally you can add the .sync.yml file to all your modules and they will have the same set of gems too.</p><h4 id=update-the-gemfile-directly>Update the Gemfile Directly</h4><p>You can certainly modify any file in the puppet module&rsquo;s directory just like you did before. However, because some of these files are under PDK&rsquo;s control those changes may get erased if someone runs <code>pdk update</code>. So I would recommend updating the .sync.yml file or the template repos first.</p><h2 id=summary>Summary</h2><p>So there you have it. PDK allows quite a but of granule control of your module with the .sync file and forking of pdk-templates.
-Now that you know what to modify you can start by adding the puppet-debugger and other gems you want to use.</p></div><footer><p class=meta><span class="byline author vcard">Posted by <span class=fn>Corey Osman</span></span>
-<time>Apr 2, 2019</time></span></p><p class=meta><a class="basic-alignment left" href=../../blog/2018-09-25-alternative-facts/ title="Alternative Facts">Alternative Facts</a>
-<a class="basic-alignment right" href=../../blog/2021-02-14-getting-real-with-the-ral/ title="Getting real with the RAL">Getting real with the RAL</a></p><div id=disqus_thread></div><script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var b=document,a=b.createElement('script');a.async=!0,a.src='//logicalthoughtsexposed.disqus.com/embed.js',a.setAttribute('data-timestamp',+new Date),(b.head||b.body).appendChild(a)})()</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a></footer></article></div><aside class="sidebar thirds"><section class="first odd"><p></p></section><ul class=sidebar-nav><li class=sidebar-nav-item><a target=_blank rel="noopener noreferrer" href=https://github.com/nwops/ title=https://github.com/nwops/><i class="fa fa-github fa-3x"></i></a>
+</code></pre><p>Since the .sync.yml file is now in your module&rsquo;s repo anybody else working on your module will have the same environment. Additionally you can add the .sync.yml file to all your modules and they will have the same set of gems too.</p>
+<h4 id=update-the-gemfile-directly>Update the Gemfile Directly</h4>
+<p>You can certainly modify any file in the puppet module&rsquo;s directory just like you did before. However, because some of these files are under PDK&rsquo;s control those changes may get erased if someone runs <code>pdk update</code>. So I would recommend updating the .sync.yml file or the template repos first.</p>
+<h2 id=summary>Summary</h2>
+<p>So there you have it. PDK allows quite a but of granule control of your module with the .sync file and forking of pdk-templates.
+Now that you know what to modify you can start by adding the puppet-debugger and other gems you want to use.</p>
+</div>
+<footer>
+<p class=meta>
+<span class="byline author vcard">Posted by <span class=fn>Corey Osman</span></span>
+<time>Apr 2, 2019</time>
+</span>
+</p>
+<p class=meta>
+<a class="basic-alignment left" href=../../blog/2018-09-25-alternative-facts/ title="Alternative Facts">Alternative Facts</a>
+<a class="basic-alignment right" href=../../blog/2021-02-14-getting-real-with-the-ral/ title="Getting real with the RAL">Getting real with the RAL</a>
+</p>
+<div id=disqus_thread></div>
+<script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var b=document,a=b.createElement('script');a.async=!0,a.src='//logicalthoughtsexposed.disqus.com/embed.js',a.setAttribute('data-timestamp',+new Date),(b.head||b.body).appendChild(a)})()</script>
+<noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
+<a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
+</footer>
+</article>
+</div>
+<aside class="sidebar thirds">
+<section class="first odd">
+<p>
+</p>
+</section>
+<ul class=sidebar-nav>
+<li class=sidebar-nav-item>
+<a target=_blank rel="noopener noreferrer" href=https://github.com/nwops/ title=https://github.com/nwops/><i class="fa fa-github fa-3x"></i></a>
 <a target=_blank rel="noopener noreferrer" href=https://twitter.com/cosman2001 title=https://twitter.com/cosman2001><i class="fa fa-twitter fa-3x"></i></a>
-<a target=_blank rel="noopener noreferrer" href=https://www.linkedin.com/in/logicmindscorp/ title=https://www.linkedin.com/in/logicmindscorp/><i class="fa fa-linkedin fa-3x"></i></a></li></ul><section class=odd><li><a href=../../categories/ title=Categories>Categories</a></li><li><a href=../../tags/ title=Tags>Tags</a></li></section><section class=even><h1>Recent Posts</h1><ul id=recent_posts><li class=post><a href=../../blog/2021-04-14-decouple-your-control-repo-branches/>Decouple Your Control Repo Branches</a></li><li class=post><a href=../../blog/2021-02-15-no-code-is-the-best-code/>No Code Is the Best Code</a></li><li class=post><a href=../../blog/2021-02-14-getting-real-with-the-ral/>Getting real with the RAL</a></li><li class=post><a href=../../blog/2019-04-02-adding-puppet-debugger-and-other-gems-when-using-pdk/>Adding Puppet Debugger and other gems when using PDK</a></li><li class=post><a href=../../blog/2018-09-25-alternative-facts/>Alternative Facts</a></li><li class=post><a href=../../blog/2018-09-25-debugging-and-inspecting-hiera-lookups/>Debugging and Inspecting hiera lookups</a></li><li class=post><a href=../../blog/2017-10-12-retrospec-the-task-generator/>Retrospec - the task generator</a></li><li class=post><a href=../../blog/2017-06-01-put-some-data-in-your-module/>Put some data in your module</a></li><li class=post><a href=../../blog/2017-04-25-break-into-your-puppet-code/>Break into your puppet code</a></li></ul></section></aside></div></div><footer role=contentinfo><p>Copyright &copy; 2021 Corey Osman - <a href=../../license/>License</a> -
-<span class=credit>Powered by <a target=_blank href=https://gohugo.io rel="noopener noreferrer">Hugo</a> and <a target=_blank href=https://github.com/parsiya/hugo-octopress/ rel="noopener noreferrer">Hugo-Octopress</a> theme.</p></footer></body></html>
+<a target=_blank rel="noopener noreferrer" href=https://www.linkedin.com/in/logicmindscorp/ title=https://www.linkedin.com/in/logicmindscorp/><i class="fa fa-linkedin fa-3x"></i></a>
+</li>
+</ul>
+<section class=odd>
+<li>
+<a href=../../categories/ title=Categories>Categories</a>
+</li>
+<li>
+<a href=../../tags/ title=Tags>Tags</a>
+</li>
+</section>
+<section class=even>
+<h1>Recent Posts</h1>
+<ul id=recent_posts>
+<li class=post>
+<a href=../../blog/2021-04-14-decouple-your-control-repo-branches/>Decouple Your Control Repo Branches</a>
+</li>
+<li class=post>
+<a href=../../blog/2021-02-15-no-code-is-the-best-code/>No Code Is the Best Code</a>
+</li>
+<li class=post>
+<a href=../../blog/2021-02-14-getting-real-with-the-ral/>Getting real with the RAL</a>
+</li>
+<li class=post>
+<a href=../../blog/2019-04-02-adding-puppet-debugger-and-other-gems-when-using-pdk/>Adding Puppet Debugger and other gems when using PDK</a>
+</li>
+<li class=post>
+<a href=../../blog/2018-09-25-alternative-facts/>Alternative Facts</a>
+</li>
+<li class=post>
+<a href=../../blog/2018-09-25-debugging-and-inspecting-hiera-lookups/>Debugging and Inspecting hiera lookups</a>
+</li>
+<li class=post>
+<a href=../../blog/2017-10-12-retrospec-the-task-generator/>Retrospec - the task generator</a>
+</li>
+<li class=post>
+<a href=../../blog/2017-06-01-put-some-data-in-your-module/>Put some data in your module</a>
+</li>
+<li class=post>
+<a href=../../blog/2017-04-25-break-into-your-puppet-code/>Break into your puppet code</a>
+</li>
+</ul>
+</section>
+</aside>
+</div>
+</div>
+<footer role=contentinfo>
+<p>Copyright &copy; 2022 Corey Osman - <a href=../../license/>License</a> -
+<span class=credit>Powered by <a target=_blank href=https://gohugo.io rel="noopener noreferrer">Hugo</a> and <a target=_blank href=https://github.com/parsiya/hugo-octopress/ rel="noopener noreferrer">Hugo-Octopress</a> theme.
+</p>
+</footer>
+</body>
+</html>
