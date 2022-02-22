@@ -25,7 +25,7 @@ A typical scenario:
 3. merge QA into acceptance (pre-prod)
 4. merge acceptance into production
 
-![](/static/images/07_control_repo_update.png)
+![](/images/07_control_repo_update.png)
 
 This workflow usually stops bugs at various points as access to different networks and data-centers are mixed in.
 ### Bug Fixes
