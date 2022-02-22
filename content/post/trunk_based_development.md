@@ -1,6 +1,6 @@
 ---
 title: "Trunk based development for your control repo"
-date: 2021-03-13T09:52:43-08:00
+date: 2022-02-22T09:52:43-08:00
 published: true
 layout: post
 comments: true
@@ -33,7 +33,7 @@ If there is a code issue anywhere in this cycle, you simply create a new branch 
 
 A typical bug-fix scenario:
 
-1. Create bug_fix branch based off of branch where the fix will be applied (destination)
+1. Create bug-fix branch based off of branch where the fix will be applied (destination)
 2. Make changes
 3. Create commit and pull request
 4. Have team review and merge to destination branch
@@ -63,7 +63,7 @@ If we want to simplify our control-repo we simply remove branches.  Mo branches,
 But if we remove branches how do we test code?  Can we test code in a environment without having to create a branch?  YES.  Read below.
 
 ## Introducing YAML based environments
-A YAML based environment is one that is created via a manually or dynamically assigned map of a code revision to environment name.  In essence, you can have 100 puppet environments while only maintaining a single git branch.
+A YAML based environment is one that is created via a manually or dynamically assigned map of a code revision to environment name.  In essence, you assign a code revision to an environment of your choice. You can even have 100 puppet environments while only maintaining a single git branch.
 
 Furthermore, for the first time ever you can assign a puppet environment to a git tag and version your control repo like a puppet module without any extra work. 
 
@@ -78,7 +78,7 @@ With an implementation of [YAML based environments](https://github.com/puppetlab
 ### How is this possible?
 R10k by default maps the branch name to a environment name with the same name.  If you want to manually control this behavior all you need to supply is a map for r10k to use.  In the **simplest form**  a YAML file similar to below is all that is needed to manually assign code to an environment.  What this file details is the environment name, location of source code and the revision of code to use.  R10k will deploy the code based on these parameters like you would expect.
 
-This map file can be updated at any time and would live outside of the control repo. However, just because the map is updated doesn't mean your code is deployed.  You still need to run the code deployment command for r10k/code manager.  Furthermore, R10k can even call an http API or any script to produce the same content the below file contains.  Obviously, you would wire up a git hook to auto deploy this though.
+This map file can be updated at any time and would live outside of the control repo. However, just because the map is updated doesn't mean your code is deployed.  You still need to run the code deployment command for r10k/code manager.  Furthermore, R10k can even call an http API or any script to produce the same content the below file contains.  Obviously, you would wire up a git hook to auto deploy this though. 😁
 
 
 ```yaml
@@ -108,7 +108,7 @@ development:
 ```
 
 ### Eating cake
-Now, some may have noticed that a manually assigned map of code to environments doesn't allow for the dynamic environment creation we are accustomed to.  While this is true, you should know that R10k allows you to have multiple sources.  This means you can configure R10k to use YAML based and dynamic (traditional) thus bringing both worlds together into a true TRUNK based development workflow with automatic environment creation.
+Now, some may have noticed that a manually assigned map of code to environments doesn't allow for the dynamic environment creation we are accustomed to.  While this is true, you should know that R10k allows you to have multiple sources.  This means you can configure R10k to use YAML and git based (traditional) thus bringing both worlds together into a true TRUNK based development workflow with automatic environment creation.
 
 Below is a snippet of a basic setup for puppet enterprise.  Non PE users can use the r10k puppet module with a similar hiera key
 
@@ -134,7 +134,11 @@ puppet_enterprise::master::code_manager::sources:
      - development
 ```
 
-With this setup in place not only do I have a single branch called main, I also have four environments at various code revisions, in addition to a ephemeral environment for a hot-fix release that is mapped to the respective branch name.  I can update my main branch without affecting my environments and can also selectively introduce the hot-fix code to any environment as well without merging code. Once I have proven the hot-fix code works only then will I merge it to main.  Because my development environment is fed from the main branch it will start getting that hot-fix.  Because I have assigned code rather than merging I have more flexibility of how, when and where code is deployed.  All branches start from main and merge back into main.  
+With this setup in place not only do I have a single branch called main, I also have four environments at various code revisions, in addition to a ephemeral environment for a hot-fix release that is mapped to the respective branch name.  
+
+I can update my main branch without affecting my environments and can also selectively introduce the hot-fix code to any environment as well without merging code. Once I have proven the hot-fix code works only then will I merge it to main.  Because my development environment is fed from the main branch it will start getting that hot-fix.  
+
+Because I have assigned code rather than merging I have more flexibility of how, when and where code is deployed.  All branches start from main and merge back into main.  
 
 ## Is this all worth yet?
 Absolutely, while this setup is slightly different from the traditional setup, the amount of change required is minimal and the payoff is huge IMHO.  Simplicity should always be the preferred choice and a single branch couldn't be any simpler.  If you are thinking about implementing a YAML based environment and switching to a true trunk based development workflow please ensure the entire team is on board because this is a change everyone needs to be aware of.  
@@ -177,6 +181,6 @@ acceptance:
 ```
 
 ## Getting help
-At the moment there are only a few organizations that have this implemented.  While there isn't much to changing R10k over to using a YAML based config, a half day of work for me at least.  You can reach out on the puppet community slack for assistance or hire us for this task and much more.  We are a Puppet Service Delivery Partner and can help with this specific setup and much more.  You can reach us at automation@nwops.io or `@nwops` on the puppet community slack.
+At the moment there are only a few organizations that have this implemented.  While there isn't much to changing R10k over to using a YAML based config, a half day of work for me at least.  You can reach out on the puppet community slack for assistance or hire us for this task.  We are a Puppet Service Delivery Partner and can help with this specific setup and much more.  You can reach us at automation@nwops.io or `@nwops` on the puppet community slack.
 
 This change isn't just about checking a box, it is about moving your team to a more efficient workflow.
