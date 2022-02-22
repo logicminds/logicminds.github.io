@@ -1,10 +1,10 @@
 ---
 title: "Trunk based development for your control repo"
 date: 2021-03-13T09:52:43-08:00
-published: false
+published: true
 layout: post
 comments: true
-categories: [puppet, devops, r10k]
+categories: [puppet, devops, r10k, git]
 ---
 
 Since the inception of R10k there has been a recipe of 1 part branch to 1 part puppet environment for puppet control repos.  This concoction has allowed us to create one-off ephemeral test environments that we all love simply by creating a new git branch. 
