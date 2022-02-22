@@ -177,6 +177,6 @@ acceptance:
 ```
 
 ## Getting help
-At the moment there are only a few organizations that have this implemented.  While there isn't much to changing R10k over to using a YAML based config, a half day of work for me at least.  You can reach out on the puppet community slack for assistance or hire us for this task and much more.  We are Puppet Service Delivery Partner and can help with this specific setup and much more.  You can reach us at automation@nwops.io or `@nwops` on the puppet community slack.
+At the moment there are only a few organizations that have this implemented.  While there isn't much to changing R10k over to using a YAML based config, a half day of work for me at least.  You can reach out on the puppet community slack for assistance or hire us for this task and much more.  We are a Puppet Service Delivery Partner and can help with this specific setup and much more.  You can reach us at automation@nwops.io or `@nwops` on the puppet community slack.
 
 This change isn't just about checking a box, it is about moving your team to a more efficient workflow.
