@@ -39,9 +39,9 @@
 <div>
 <article class=hentry role=article>
 <header>
-<p class=meta>Mar 13, 2021
+<p class=meta>Feb 22, 2022
 - 9 minute read
-- <a href=../../blog/2021-03-13-trunk-based-development-for-your-control-repo/#disqus_thread>Comments</a>
+- <a href=../../blog/2022-02-22-trunk-based-development-for-your-control-repo/#disqus_thread>Comments</a>
 - <a class=label href=../../categories/puppet/>puppet </a><a class=label href=../../categories/devops/>devops </a><a class=label href=../../categories/r10k/>r10k </a><a class=label href=../../categories/git/>git </a>
 </p>
 <h1 class=entry-title>
@@ -68,7 +68,7 @@ Trunk based development for your control repo
 <p>If there is a code issue anywhere in this cycle, you simply create a new branch and merge that fix into the branch and voila.</p>
 <p>A typical bug-fix scenario:</p>
 <ol>
-<li>Create bug_fix branch based off of branch where the fix will be applied (destination)</li>
+<li>Create bug-fix branch based off of branch where the fix will be applied (destination)</li>
 <li>Make changes</li>
 <li>Create commit and pull request</li>
 <li>Have team review and merge to destination branch</li>
@@ -96,7 +96,7 @@ Trunk based development for your control repo
 <p>If we want to simplify our control-repo we simply remove branches. Mo branches, mo problems. No Code is the best code. Yes I am serious here.</p>
 <p>But if we remove branches how do we test code? Can we test code in a environment without having to create a branch? YES. Read below.</p>
 <h2 id=introducing-yaml-based-environments>Introducing YAML based environments</h2>
-<p>A YAML based environment is one that is created via a manually or dynamically assigned map of a code revision to environment name. In essence, you can have 100 puppet environments while only maintaining a single git branch.</p>
+<p>A YAML based environment is one that is created via a manually or dynamically assigned map of a code revision to environment name. In essence, you assign a code revision to an environment of your choice. You can even have 100 puppet environments while only maintaining a single git branch.</p>
 <p>Furthermore, for the first time ever you can assign a puppet environment to a git tag and version your control repo like a puppet module without any extra work.</p>
 <p>With an implementation of
 <a href=https://github.com/puppetlabs/r10k/blob/master/doc/dynamic-environments/configuration.mkd#experimental-features target=_blank rel=noopener>YAML based environments</a> you can fully utilize
@@ -110,7 +110,7 @@ Trunk based development for your control repo
 </ol>
 <h3 id=how-is-this-possible>How is this possible?</h3>
 <p>R10k by default maps the branch name to a environment name with the same name. If you want to manually control this behavior all you need to supply is a map for r10k to use. In the <strong>simplest form</strong> a YAML file similar to below is all that is needed to manually assign code to an environment. What this file details is the environment name, location of source code and the revision of code to use. R10k will deploy the code based on these parameters like you would expect.</p>
-<p>This map file can be updated at any time and would live outside of the control repo. However, just because the map is updated doesn&rsquo;t mean your code is deployed. You still need to run the code deployment command for r10k/code manager. Furthermore, R10k can even call an http API or any script to produce the same content the below file contains. Obviously, you would wire up a git hook to auto deploy this though.</p>
+<p>This map file can be updated at any time and would live outside of the control repo. However, just because the map is updated doesn&rsquo;t mean your code is deployed. You still need to run the code deployment command for r10k/code manager. Furthermore, R10k can even call an http API or any script to produce the same content the below file contains. Obviously, you would wire up a git hook to auto deploy this though. 😁</p>
 <div class=highlight><pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#586e75># /etc/puppetlabs/r10k/environments.yaml</span>
 ---
 <span style=color:#268bd2>production</span>:
@@ -135,7 +135,7 @@ Trunk based development for your control repo
 
 
 </code></pre></div><h3 id=eating-cake>Eating cake</h3>
-<p>Now, some may have noticed that a manually assigned map of code to environments doesn&rsquo;t allow for the dynamic environment creation we are accustomed to. While this is true, you should know that R10k allows you to have multiple sources. This means you can configure R10k to use YAML based and dynamic (traditional) thus bringing both worlds together into a true TRUNK based development workflow with automatic environment creation.</p>
+<p>Now, some may have noticed that a manually assigned map of code to environments doesn&rsquo;t allow for the dynamic environment creation we are accustomed to. While this is true, you should know that R10k allows you to have multiple sources. This means you can configure R10k to use YAML and git based (traditional) thus bringing both worlds together into a true TRUNK based development workflow with automatic environment creation.</p>
 <p>Below is a snippet of a basic setup for puppet enterprise. Non PE users can use the r10k puppet module with a similar hiera key</p>
 <div class=highlight><pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#586e75># control_repo/data/common.yaml</span>
 <span style=color:#268bd2>puppet_enterprise::master::code_manager::sources</span>:
@@ -156,7 +156,9 @@ Trunk based development for your control repo
      - qa
      - test
      - development
-</code></pre></div><p>With this setup in place not only do I have a single branch called main, I also have four environments at various code revisions, in addition to a ephemeral environment for a hot-fix release that is mapped to the respective branch name. I can update my main branch without affecting my environments and can also selectively introduce the hot-fix code to any environment as well without merging code. Once I have proven the hot-fix code works only then will I merge it to main. Because my development environment is fed from the main branch it will start getting that hot-fix. Because I have assigned code rather than merging I have more flexibility of how, when and where code is deployed. All branches start from main and merge back into main.</p>
+</code></pre></div><p>With this setup in place not only do I have a single branch called main, I also have four environments at various code revisions, in addition to a ephemeral environment for a hot-fix release that is mapped to the respective branch name.</p>
+<p>I can update my main branch without affecting my environments and can also selectively introduce the hot-fix code to any environment as well without merging code. Once I have proven the hot-fix code works only then will I merge it to main. Because my development environment is fed from the main branch it will start getting that hot-fix.</p>
+<p>Because I have assigned code rather than merging I have more flexibility of how, when and where code is deployed. All branches start from main and merge back into main.</p>
 <h2 id=is-this-all-worth-yet>Is this all worth yet?</h2>
 <p>Absolutely, while this setup is slightly different from the traditional setup, the amount of change required is minimal and the payoff is huge IMHO. Simplicity should always be the preferred choice and a single branch couldn&rsquo;t be any simpler. If you are thinking about implementing a YAML based environment and switching to a true trunk based development workflow please ensure the entire team is on board because this is a change everyone needs to be aware of.</p>
 <h2 id=basic-requirements>Basic requirements</h2>
@@ -187,19 +189,18 @@ Trunk based development for your control repo
      - main
      - acceptance
 </code></pre></div><h2 id=getting-help>Getting help</h2>
-<p>At the moment there are only a few organizations that have this implemented. While there isn&rsquo;t much to changing R10k over to using a YAML based config, a half day of work for me at least. You can reach out on the puppet community slack for assistance or hire us for this task and much more. We are a Puppet Service Delivery Partner and can help with this specific setup and much more. You can reach us at
+<p>At the moment there are only a few organizations that have this implemented. While there isn&rsquo;t much to changing R10k over to using a YAML based config, a half day of work for me at least. You can reach out on the puppet community slack for assistance or hire us for this task. We are a Puppet Service Delivery Partner and can help with this specific setup and much more. You can reach us at
 <a href=mailto:automation@nwops.io>automation@nwops.io</a> or <code>@nwops</code> on the puppet community slack.</p>
 <p>This change isn&rsquo;t just about checking a box, it is about moving your team to a more efficient workflow.</p>
 </div>
 <footer>
 <p class=meta>
 <span class="byline author vcard">Posted by <span class=fn>Corey Osman</span></span>
-<time>Mar 13, 2021</time>
+<time>Feb 22, 2022</time>
 </span>
 </p>
 <p class=meta>
-<a class="basic-alignment left" href=../../blog/2021-02-15-no-code-is-the-best-code/ title="No Code Is the Best Code">No Code Is the Best Code</a>
-<a class="basic-alignment right" href=../../blog/2021-04-14-decouple-your-control-repo-branches/ title="Decouple Your Control Repo Branches">Decouple Your Control Repo Branches</a>
+<a class="basic-alignment left" href=../../blog/2021-04-14-decouple-your-control-repo-branches/ title="Decouple Your Control Repo Branches">Decouple Your Control Repo Branches</a>
 </p>
 <div id=disqus_thread></div>
 <script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var b=document,a=b.createElement('script');a.async=!0,a.src='//logicalthoughtsexposed.disqus.com/embed.js',a.setAttribute('data-timestamp',+new Date),(b.head||b.body).appendChild(a)})()</script>
@@ -232,10 +233,10 @@ Trunk based development for your control repo
 <h1>Recent Posts</h1>
 <ul id=recent_posts>
 <li class=post>
-<a href=../../blog/2021-04-14-decouple-your-control-repo-branches/>Decouple Your Control Repo Branches</a>
+<a href=../../blog/2022-02-22-trunk-based-development-for-your-control-repo/>Trunk based development for your control repo</a>
 </li>
 <li class=post>
-<a href=../../blog/2021-03-13-trunk-based-development-for-your-control-repo/>Trunk based development for your control repo</a>
+<a href=../../blog/2021-04-14-decouple-your-control-repo-branches/>Decouple Your Control Repo Branches</a>
 </li>
 <li class=post>
 <a href=../../blog/2021-02-15-no-code-is-the-best-code/>No Code Is the Best Code</a>
