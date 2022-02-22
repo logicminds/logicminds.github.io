@@ -2,4 +2,5 @@
 In the meantime, read up on these first.
 Single branch strategy
 Environment strategy
-R10k YAML environment docs )</description></item></channel></rss>
+R10k YAML environment docs )</description></item><item><title>Trunk based development for your control repo</title><link>/blog/2021-03-13-trunk-based-development-for-your-control-repo/</link><pubDate>Sat, 13 Mar 2021 09:52:43 -0800</pubDate><guid>/blog/2021-03-13-trunk-based-development-for-your-control-repo/</guid><description>Since the inception of R10k there has been a recipe of 1 part branch to 1 part puppet environment for puppet control repos. This concoction has allowed us to create one-off ephemeral test environments that we all love simply by creating a new git branch.
+Since R10k was first introduced we have always used the promotion workflow to usher features into environments. While this workflow served us well there is a different kind of code setup that is now possible with R10k that improves upon what we already know.</description></item></channel></rss>
